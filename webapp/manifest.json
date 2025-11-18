@@ -85,8 +85,7 @@
         "type": "View",
         "viewType": "XML",
         "path": "ordersystem.view",
-        "async": true,
-        "viewPath": "ordersystem.view"
+        "async": true      
       },
       "routes": [
         {

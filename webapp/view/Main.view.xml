@@ -1,4 +1,8 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" 
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m"      
+    xmlns:form="sap.ui.layout.form" 
+    xmlns:core="sap.ui.core" 
 controllerName="ordersystem.controller.Main">
    
     <Page id="Page" title="Orders">
@@ -6,37 +10,37 @@ controllerName="ordersystem.controller.Main">
             <form:SimpleForm id="sfMain1" layout="ResponsiveGridLayout" columnsL="4" columnsM="4" labelSpanL="12" labelSpanM="12" emptySpanL="0" emptySpanM="0" editable="true">
                    
                 <!-- Order Number -->
-                <VBox>
-                    <Label text="Order Number"/>
-                    <Input id="orderNumber" placeholder="Order Number"/>
+                <VBox id="vbOrderNumber">
+                    <Label id="lblOrderNumber" text="Order Number"/>
+                    <Input id="inpOrderNumber" placeholder="Order Number"/>
                 </VBox>
  
                 <!-- Creation Date -->
-                <VBox>
-                    <Label text="Creation Date"/>
-                    <DatePicker id="creationDate" placeholder="Creation Date"/>
+                <VBox id="vbCreateDate">
+                    <Label id="lblCreateDate" text="Creation Date"/>
+                    <DatePicker id="dpCreationDate" placeholder="Creation Date"/>
                 </VBox>
  
                 <!-- Status -->
-                <VBox>
-                    <Label text="Status"/>
-                    <Select id="status">
+                <VBox id="vbStatus">
+                    <Label id="lblStatus" text="Status"/>
+                    <Select id="selStatus">
                     <items>
-                        <core:Item key="" text=""/>
-                        <core:Item key="Created" text="Created"/>
-                        <core:Item key="Released" text="Released"/>
-                        <core:Item key="PartiallyReleased" text="Partially Completed"/>
-                        <core:Item key="Delivered" text="Delivered"/>
+                        <core:Item id="itemCB" key="" text=""/>
+                        <core:Item id="itemCreated" key="Created" text="Created"/>
+                        <core:Item id="itemReleased" key="Released" text="Released"/>
+                        <core:Item id="itemPartiallyReleased" key="PartiallyReleased" text="Partially Completed"/>
+                        <core:Item id="itemDelivered" key="Delivered" text="Delivered"/>
                     </items>
                     </Select>
                 </VBox>
  
                 <!-- Buttons -->
-                <VBox>
-                    <Label text=" "/>
-                    <HBox>
-                        <Button text="Go" type="Emphasized" press="onFilterGo"/>
-                        <Button text="Clear" type="Transparent" press="onFilterClear"/>
+                <VBox id="vbButtons">
+                    <Label id="lblEmpty" text=" "/>
+                    <HBox id="hbButtons">
+                        <Button id="btnGo" text="Go" type="Emphasized" press="onFilterGo"/>
+                        <Button id="btnClear" text="Clear" type="Transparent" press="onFilterClear"/>
                     </HBox>
                 </VBox>
             </form:SimpleForm>
@@ -49,14 +53,14 @@ controllerName="ordersystem.controller.Main">
                             <Title id="tblOrdersTitle" text="{i18n>tabTitle}()"/>
                             <ToolbarSpacer id="idTSpacer"/>
                             <Button id="btnCreateOrder" tooltip="{i18n>add}" press="onCreateOrder" icon="sap-icon://add"/>
-                            <Button id="btnDeleteOrder" tooltip="{i18n>delete}" press="onAddItem" icon="sap-icon://delete"/>
+                            <Button id="btnDeleteOrder" tooltip="{i18n>delete}" press="onDeleteOrder" icon="sap-icon://delete"/>
                         </content>
                     </OverflowToolbar>
                 </headerToolbar>
  
                 <!-- Table Column Text -->
                 <columns>
-                    <Column id="colCheckBox" width="3rem"><Text text=""/></Column>
+                    <Column id="colCheckBox" width="3rem"><Text id="txtEmptyCB" text=""/></Column>
                     <Column id="colOrderNumber"><Text id="txtColOrderNumber" text="Order Number"/></Column>
                     <Column id="colCreationDate"><Text id="txtColCreationDate" text="Creation Date"/></Column>            
                     <Column id="colReceivingPlant"><Text id="txtColReceivingPlant" text="Receiving Plant"/></Column>
@@ -68,12 +72,12 @@ controllerName="ordersystem.controller.Main">
                 <items>
                     <ColumnListItem id="colListItemOrders" type="Navigation" press="onItemPress">
                         <cells>
-                            <CheckBox id="chkSelRow" select="onSelectRow"/>
-                            <Text id="txtOrderNumber" text="{OrderNumber}"/>
-                            <Text id="txtCreationDate" text="{CreationDate}"/>
+                            <CheckBox id="chkSelRow" selected="SelectedRow"/>
+                            <Text id="txtOrderNumber" text="{OrdId}"/>
+                            <Text id="txtCreationDate" text="{CreateDate}"/>
                             <Text id="txtReceivingPlant" text="{ReceivingPlant}"/>
                             <Text id="txtDeliveringPlant" text="{DeliveringPlant}"/>
-                            <Text id="txtStatus" text="{Status}"/>
+                            <Text id="txtStatus" text="{Status}" class="{path: 'Status', formatter: '.formatStatusClass'}" />
                         </cells>
                     </ColumnListItem>
                 </items>
