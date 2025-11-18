@@ -90,17 +90,44 @@
       },
       "routes": [
         {
-          "name": "RouteView1",
+          "name": "RouteMain",
           "pattern": ":?query:",
           "target": [
-            "TargetView1"
+            "TargetMain"
           ]
+        },
+        {
+          "name": "Detail",
+          "pattern": "Detail{id}",
+          "target": "Detail"
+        },
+        {
+          "name": "Create",
+          "pattern": "Create",
+          "target": "Create"
+        },
+        {
+          "name": "Edit",
+          "pattern": "Edit{id}",
+          "target": "Edit"
         }
       ],
       "targets": {
-        "TargetView1": {
-          "id": "View1",
-          "name": "View1"
+        "TargetMain": {
+          "id": "Main",
+          "name": "Main"
+        },
+        "Detail": {
+          "id": "Detail",
+          "name": "Detail"
+        },
+        "Create": {
+          "id": "Create",
+          "name": "Create"
+        },
+        "Edit": {
+          "id": "Edit",
+          "name": "Edit"
         }
       }
     },

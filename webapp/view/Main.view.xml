@@ -1,0 +1,85 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" 
+controllerName="ordersystem.controller.Main">
+   
+    <Page id="Page" title="Orders">
+        <content>                    
+            <form:SimpleForm id="sfMain1" layout="ResponsiveGridLayout" columnsL="4" columnsM="4" labelSpanL="12" labelSpanM="12" emptySpanL="0" emptySpanM="0" editable="true">
+                   
+                <!-- Order Number -->
+                <VBox>
+                    <Label text="Order Number"/>
+                    <Input id="orderNumber" placeholder="Order Number"/>
+                </VBox>
+ 
+                <!-- Creation Date -->
+                <VBox>
+                    <Label text="Creation Date"/>
+                    <DatePicker id="creationDate" placeholder="Creation Date"/>
+                </VBox>
+ 
+                <!-- Status -->
+                <VBox>
+                    <Label text="Status"/>
+                    <Select id="status">
+                    <items>
+                        <core:Item key="" text=""/>
+                        <core:Item key="Created" text="Created"/>
+                        <core:Item key="Released" text="Released"/>
+                        <core:Item key="PartiallyReleased" text="Partially Completed"/>
+                        <core:Item key="Delivered" text="Delivered"/>
+                    </items>
+                    </Select>
+                </VBox>
+ 
+                <!-- Buttons -->
+                <VBox>
+                    <Label text=" "/>
+                    <HBox>
+                        <Button text="Go" type="Emphasized" press="onFilterGo"/>
+                        <Button text="Clear" type="Transparent" press="onFilterClear"/>
+                    </HBox>
+                </VBox>
+            </form:SimpleForm>
+ 
+            <!-- TableView for Orders -->
+            <Table id="tblOrders" items="{/Orders}">
+                <headerToolbar>
+                    <OverflowToolbar id="idOFT">
+                        <content>
+                            <Title id="tblOrdersTitle" text="{i18n>tabTitle}()"/>
+                            <ToolbarSpacer id="idTSpacer"/>
+                            <Button id="btnCreateOrder" tooltip="{i18n>add}" press="onCreateOrder" icon="sap-icon://add"/>
+                            <Button id="btnDeleteOrder" tooltip="{i18n>delete}" press="onAddItem" icon="sap-icon://delete"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+ 
+                <!-- Table Column Text -->
+                <columns>
+                    <Column id="colCheckBox" width="3rem"><Text text=""/></Column>
+                    <Column id="colOrderNumber"><Text id="txtColOrderNumber" text="Order Number"/></Column>
+                    <Column id="colCreationDate"><Text id="txtColCreationDate" text="Creation Date"/></Column>            
+                    <Column id="colReceivingPlant"><Text id="txtColReceivingPlant" text="Receiving Plant"/></Column>
+                    <Column id="colDeliveringPlant"><Text id="txtColDeliveringPlant" text="Delivering Plant"/></Column>
+                    <Column id="colStatus"><Text id="txtColStatus" text="Status"/></Column>
+                </columns>
+ 
+                <!-- Table Item List -->
+                <items>
+                    <ColumnListItem id="colListItemOrders" type="Navigation" press="onItemPress">
+                        <cells>
+                            <CheckBox id="chkSelRow" select="onSelectRow"/>
+                            <Text id="txtOrderNumber" text="{OrderNumber}"/>
+                            <Text id="txtCreationDate" text="{CreationDate}"/>
+                            <Text id="txtReceivingPlant" text="{ReceivingPlant}"/>
+                            <Text id="txtDeliveringPlant" text="{DeliveringPlant}"/>
+                            <Text id="txtStatus" text="{Status}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+       
+        </content>
+    </Page>
+ 
+</mvc:View>

@@ -1,0 +1,87 @@
+<mvc:View controllerName="ordersystem.controller.Create"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"    
+    xmlns="sap.m">
+    <Page id="page3" title="{i18n>title}">
+           <content>
+            <!-- ===== Order Detail Panel ===== -->
+            <Panel headerText="Create Order" class="sapUiResponsiveMargin" >
+                <f:SimpleForm
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanL="3" labelSpanM="3"
+                    emptySpanL="1" emptySpanM="1"
+                    columnsL="1" columnsM="1">
+ 
+                   <!-- Receiving Plant -->
+        <Label text="Receiving Plant:" required="true"/>
+        <Input id="inpReceivingPlant"
+               value="{/Order/ReceivingPlant}"
+               required="true"
+               showValueHelp="true"/>
+ 
+        <!-- Delivering Plant -->
+        <Label text="Delivering Plant:" required="true"/>
+        <Input id="inpDeliveringPlant"
+               value="{/Order/DeliveringPlant}"
+               required="true"
+               showValueHelp="true"/>
+ 
+                </f:SimpleForm>
+            </Panel>
+ 
+            <!-- ===== Product Table Panel ===== -->
+            <Panel headerText="Product (0)" class="sapUiResponsiveMargin">
+ 
+                <Bar slot="headerToolbar">
+                    <contentLeft>
+                        <Title text="Product (0)" />
+                    </contentLeft>
+                    <contentRight>
+                        <Button icon="sap-icon://add" tooltip="Add Product" press=".onAddProduct"/>
+                        <Button icon="sap-icon://delete" tooltip="Delete Product" press=".onDeleteProduct"/>
+                    </contentRight>
+                </Bar>
+ 
+                <Table id="productTable" inset="false" mode="MultiSelect" noDataText="No data" items="{/ProductOrder}">
+                    <columns>
+                        <Column>
+                            <Label text="Product Name"/>
+                        </Column>
+                        <Column>
+                            <Label text="Quantity"/>
+                        </Column>
+                        <Column>
+                            <Label text="Price Per Quantity"/>
+                        </Column>
+                        <Column>
+                            <Label text="Total Price"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{ProdDesc}"/>
+                                <Input value="{Qty}" type="Number"/>
+                                <Text text="{Price}"/>
+                                <Text text=""/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+ 
+            </Panel>
+ 
+        </content>
+ 
+        <!-- ===== Footer Buttons ===== -->
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+ 
+                <Button text="Save" type="Emphasized" press=".onSave"/>
+                <Button text="Cancel" type="Reject" press=".onCancel"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

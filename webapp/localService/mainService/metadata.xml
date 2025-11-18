@@ -14,9 +14,75 @@
                 <Property Name="Position" Type="Edm.String" Nullable="false" sap:label="Position ">
                 </Property>
             </EntityType>
+
+
+            <EntityType Name="Master">
+                <Key>
+                    <PropertyRef  Name="MasterID"/>
+                </Key>
+                <Property Name="MasterID" Type="Edm.Int32" Nullable="false" sap:label="Employee Number">
+                </Property>               
+            </EntityType>
+
+            <EntityType Name="DelPlantMaster">
+                <Key>
+                    <PropertyRef  Name="DelPlantID"/>
+                </Key>
+                <Property Name="DelPlantID" Type="Edm.Int32" Nullable="false" sap:label="Delivery Plant Id"/>      
+                <Property Name="Desc" Type="Edm.String" Nullable="false" sap:label="Description"/>               
+            </EntityType>
+
+            
+            <EntityType Name="RecPlantMaster">
+                <Key>
+                    <PropertyRef  Name="RecPlantID"/>
+                </Key>
+                <Property Name="RecPlantID" Type="Edm.Int32" Nullable="false" sap:label="Receiving Plant Id"/>      
+                <Property Name="Desc" Type="Edm.String" Nullable="false" sap:label="Description"/>               
+            </EntityType>
+
+            <EntityType Name="ProductMaster">
+                <Key>
+                    <PropertyRef  Name="DelPlantID"/>
+                    <PropertyRef  Name="ProdId"/>
+                </Key>
+                <Property Name="DelPlantID" Type="Edm.Int32" Nullable="false" sap:label="Delivery Plant Id"/>      
+                <Property Name="ProdId" Type="Edm.String" Nullable="false" sap:label="Product Id"/>            
+                <Property Name="ProdDesc" Type="Edm.String" Nullable="false" sap:label="Product Description"/>     
+                <Property Name="Price" Type="Edm.Decimal" Nullable="false" sap:label="Price"/>  
+                <Property Name="Stock" Type="Edm.Int16" Nullable="false" sap:label="Stock"/>       
+            </EntityType>
+
+            <EntityType Name="Order">
+                <Key>
+                    <PropertyRef  Name="OrdId"/>
+                </Key>
+                <Property Name="OrdId" Type="Edm.Int32" Nullable="false" sap:label="OrderId"/>      
+                <Property Name="CreateDate" Type="Edm.String" Nullable="false" sap:label="Creation Date"/>            
+                <Property Name="ReceivingPlant" Type="Edm.String" Nullable="false" sap:label="Receiving Plant"/>     
+                <Property Name="DeliveringPlant" Type="Edm.String" Nullable="false" sap:label="Delivering Plant"/>  
+                <Property Name="Status" Type="Edm.String" Nullable="false" sap:label="Status"/>       
+            </EntityType>
+
+            <EntityType Name="Product_Order">
+                <Key>
+                    <PropertyRef  Name="OrdId"/>
+                </Key>
+                <Property Name="OrdId" Type="Edm.Int32" Nullable="false" sap:label="OrderId"/>      
+                <Property Name="ProdId" Type="Edm.String" Nullable="false" sap:label="Product Id"/>            
+                <Property Name="ProdDesc" Type="Edm.String" Nullable="false" sap:label="Product Description"/>     
+                <Property Name="Qty" Type="Edm.Int16" Nullable="false" sap:label="Quantity"/>  
+                <Property Name="Price" Type="Edm.Decimal" Nullable="false" sap:label="Price"/>       
+            </EntityType>
+
             <EntityContainer Name="ProjectEntities" m:IsDefaultEntityContainer="true">
-                <EntitySet Name="Employees" EntityType="ProjectModel.Employee">
-                </EntitySet>
+                <EntitySet Name="Employees" EntityType="ProjectModel.Employee"/>
+                <EntitySet Name="Masters" EntityType="ProjectModel.Master"/>
+                <EntitySet Name="DelPlantMasters" EntityType="ProjectModel.DelPlantMaster"/>
+                <EntitySet Name="RecPlantMasters" EntityType="ProjectModel.RecPlantMaster"/>
+                <EntitySet Name="ProductMasters" EntityType="ProjectModel.ProductMaster"/>
+                <EntitySet Name="Orders" EntityType="ProjectModel.Order"/>
+                <EntitySet Name="Product_Orders" EntityType="ProjectModel.Product_Order"/>
             </EntityContainer>
         </Schema>
     </edmx:DataServices>
