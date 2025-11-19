@@ -3,7 +3,7 @@
         "OrdId": 1208001548,
         "ProdId": "ProdId1",
         "ProdDesc": "ProdDesc1",
-        "Qty": 1,
-        "Price":1
+        "Qty": 3,
+        "Price":200
     }
 ]

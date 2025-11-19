@@ -1,10 +1,10 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-     "sap/ui/core/routing/History"
-], (Controller, History) => {
+    "./BaseController",
+    "sap/m/MessageBox"
+], (BaseController,MessageBox) => {
     "use strict";
 
-    return Controller.extend("ordersystem.controller.Create", {
+    return BaseController.extend("ordersystem.controller.Create", {
         onInit() {
             
               var oModel = this.getOwnerComponent().getModel("productModel"); 
@@ -55,9 +55,13 @@ sap.ui.define([
     //         //Get input values
     //  var sRec= oView.byId("inpReceivingPlan").getValue();
     //         var sDel = oView.byId("inpDeliveringPlant").getValue();
+
+           const oToday = new Date();
+            const oDateFormat = sap.ui.core.format.DateFormat.getDateInstance({pattern : "yyy-MM-dd"});
+            const sDate = oDateFormat.format(oToday);
+
             var oData = {       
-               OrdId: 269586288,
-               CreateDate: new Date(),
+               CreateDate: sDate,
                ReceivingPlant: irec,
                DeliveringPlant: idel,
                Status: "Created"
@@ -71,17 +75,25 @@ sap.ui.define([
             });
  
         },
-        onCancel: function () {
-                var oHistory = History.getInstance();
-                var sPreviousHash = oHistory.getPreviousHash();
-                var oRouter = this.getOwnerComponent().getRouter();
+        //Cancel event
+        onCancel: function () {     
+            	MessageBox.warning("The quantity you have reported exceeds the quantity planned.", {
+				actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+				emphasizedAction: MessageBox.Action.OK,
+				onClose: function (sAction) {
+                    if(sAction==='CANCEL')
+                    {
+                        this.onNavBack();
+                    }else{
 
-                if (sPreviousHash !== undefined) {
-                    window.history.go(-1);
-                } else {
-                    oRouter.navTo("RouteMain", {}, true);
-                }
+                    }
+	
+				},
+				dependentOn: this.getView()
+			});               
+        
             }
         }
+        
     ,);
 });
