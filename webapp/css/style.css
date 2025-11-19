@@ -1,5 +1,1 @@
 /* Enter your custom styles here */
-.statusCreated { color: black !important; font-weight: bold; }
-.statusReleased { color: red !important; font-weight: bold;}
-.statusPartiallyCompleted { color: blue !important; font-weight: bold; }
-.statusDelivered { color: green !important; background-color: aqua; font-weight: bold; }

@@ -104,11 +104,14 @@ sap.ui.define([
         //for status color change
         formatStatusClass: function (sStatus) {
             switch (sStatus) {
-                case "Created": return "statusCreated"; 
-                case "Released": return "statusReleased"; 
-                case "Partially Completed": return "statusPartiallyCompleted"; 
-                case "Delivered": return "statusDelivered"; 
-                default: return "";
+                //case "Created": return "statusCreated"; 
+                //case "Released": return "statusReleased"; 
+                //case "Partially Completed": return "statusPartiallyCompleted"; 
+                //case "Delivered": return "statusDelivered"; 
+                case "Released": return "Warning"; break;
+                case "Partially Completed": return "Information"; break;
+                case "Delivered": return "Success"; break;
+                default: return "None";
             }
         }
     });
