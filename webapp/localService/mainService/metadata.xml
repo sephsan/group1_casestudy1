@@ -14,8 +14,6 @@
                 <Property Name="Position" Type="Edm.String" Nullable="false" sap:label="Position ">
                 </Property>
             </EntityType>
-
-
             <EntityType Name="Master">
                 <Key>
                     <PropertyRef  Name="MasterID"/>
@@ -57,8 +55,8 @@
                 <Key>
                     <PropertyRef  Name="OrdId"/>
                 </Key>
-                <Property Name="OrdId" Type="Edm.Int32" Nullable="false" sap:label="OrderId"/>      
-                <Property Name="CreateDate" Type="Edm.String" Nullable="false" sap:label="Creation Date"/>            
+                <Property Name="OrdId" Type="Edm.Int16" Nullabe="false" sap:label="OrderId"/>      
+                <Property Name="CreateDate" Type="Edm.DateTime" Nullable="false" sap:label="Creation Date"/>            
                 <Property Name="ReceivingPlant" Type="Edm.String" Nullable="false" sap:label="Receiving Plant"/>     
                 <Property Name="DeliveringPlant" Type="Edm.String" Nullable="false" sap:label="Delivering Plant"/>  
                 <Property Name="Status" Type="Edm.String" Nullable="false" sap:label="Status"/>       

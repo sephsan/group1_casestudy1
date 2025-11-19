@@ -8,8 +8,16 @@ sap.ui.define([
     return Controller.extend("ordersystem.controller.Main", {
         onInit() {
   
-            var oData = this.getOwnerComponent().getModel();
-            this.getView().setModel(oData );
+            var oModel = this.getOwnerComponent().getModel();
+
+            // Initialize SelectedRow for each order
+            //var aOrders = oModel.getProperty("/Orders");
+            //aOrders.forEach(function(oOrder) {
+            //    oOrder.SelectedRow = false;
+            //});
+            //oModel.setProperty("/Orders", aOrders);
+
+            this.getView().setModel(oModel);
         },
 
         onAfterRendering() {
@@ -22,7 +30,7 @@ sap.ui.define([
             oTable.attachUpdateFinished(function(oEvent) {
             var iCount = oEvent.getParameter("total");
               this.byId("tblOrdersTitle").setText(sText + "(" + iCount + ")");
-              }.bind(this));
+              }.bind(this));                           
         },
 
         //on table Create button-navigation to Create Order Page
@@ -34,23 +42,23 @@ sap.ui.define([
         //on table Delete Order button
         onDeleteOrder:function(){
             
-            var oTable = this.byId("tblOrders");
+            var oTable = this.getView().byId("tblOrders");
             var aItems = oTable.getItems();
-            var oModel = this.getView().getModel();
+            var oModel = this.getOwnerComponent().getModel();
 
-            aItems.forEach(function(oItem) {
-                var oContext = oItem.getBindingContext();
-                if (oContext.getProperty("Selected")) {
-                    var sPath = oContext.getPath();
-                    oModel.remove(sPath, {
-                        success: function() {
-                            console.log("Deleted:", sPath);
-                        },
-                        error: function() {
-                            console.error("Failed to delete:", sPath);
-                        }
-                    });
+            // Get all selected items
+            var aSelItems = oTable.getSelectedItems();
+
+            aSelItems.forEach(function (oItem) {
+              var sPath = oItem.getBindingContext().getPath();
+                oModel.remove(sPath, {
+                success: function () {
+                    console.log("Deleted:", sPath);
+                },
+                error: function () {
+                    console.error("Failed to delete:", sPath);
                 }
+                });
             });
         },
 
@@ -95,10 +103,10 @@ sap.ui.define([
         //for status color change
         formatStatusClass: function (sStatus) {
             switch (sStatus) {
-                case "Created": return "statusCreated"; break;
-                case "Released": return "statusReleased"; break;
-                case "Partially Completed": return "statusPartiallyCompleted"; break;
-                case "Delivered": return "statusDelivered"; break;
+                case "Created": return "statusCreated"; 
+                case "Released": return "statusReleased"; 
+                case "Partially Completed": return "statusPartiallyCompleted"; 
+                case "Delivered": return "statusDelivered"; 
                 default: return "";
             }
         }

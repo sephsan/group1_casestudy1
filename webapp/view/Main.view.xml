@@ -46,7 +46,7 @@ controllerName="ordersystem.controller.Main">
             </form:SimpleForm>
  
             <!-- TableView for Orders -->
-            <Table id="tblOrders" items="{/Orders}">
+            <Table id="tblOrders" items="{/Orders}" mode="MultiSelect">
                 <headerToolbar>
                     <OverflowToolbar id="idOFT">
                         <content>
@@ -59,30 +59,27 @@ controllerName="ordersystem.controller.Main">
                 </headerToolbar>
  
                 <!-- Table Column Text -->
-                <columns>
-                    <Column id="colCheckBox" width="3rem"><Text id="txtEmptyCB" text=""/></Column>
-                    <Column id="colOrderNumber"><Text id="txtColOrderNumber" text="Order Number"/></Column>
-                    <Column id="colCreationDate"><Text id="txtColCreationDate" text="Creation Date"/></Column>            
-                    <Column id="colReceivingPlant"><Text id="txtColReceivingPlant" text="Receiving Plant"/></Column>
-                    <Column id="colDeliveringPlant"><Text id="txtColDeliveringPlant" text="Delivering Plant"/></Column>
-                    <Column id="colStatus"><Text id="txtColStatus" text="Status"/></Column>
+                <columns>                    
+                    <Column id="colOrderNumber"><Text id="txtColOrderNumber" text="Order Number" /></Column>
+                    <Column id="colCreationDate"><Text id="txtColCreationDate" text="Creation Date" /></Column>            
+                    <Column id="colReceivingPlant"><Text id="txtColReceivingPlant" text="Receiving Plant" /></Column>
+                    <Column id="colDeliveringPlant"><Text id="txtColDeliveringPlant" text="Delivering Plant" /></Column>
+                    <Column id="colStatus"><Text id="txtColStatus" text="Status" /></Column>
                 </columns>
  
                 <!-- Table Item List -->
                 <items>
                     <ColumnListItem id="colListItemOrders" type="Navigation" press="onItemPress">
-                        <cells>
-                            <CheckBox id="chkSelRow" selected="SelectedRow"/>
-                            <Text id="txtOrderNumber" text="{OrdId}"/>
-                            <Text id="txtCreationDate" text="{CreateDate}"/>
-                            <Text id="txtReceivingPlant" text="{ReceivingPlant}"/>
-                            <Text id="txtDeliveringPlant" text="{DeliveringPlant}"/>
-                            <Text id="txtStatus" text="{Status}" class="{path: 'Status', formatter: '.formatStatusClass'}" />
+                        <cells>                            
+                            <Text id="txtOrderNumber" text="{OrdId}" />
+                            <Text id="txtCreationDate" text="{CreateDate}" />
+                            <Text id="txtReceivingPlant" text="{ReceivingPlant}" />
+                            <Text id="txtDeliveringPlant" text="{DeliveringPlant}" />
+                            <ObjectStatus id="txtStatus" text="{Status}" class="{path: 'Status', formatter: '.formatStatusClass'}" />
                         </cells>
                     </ColumnListItem>
                 </items>
-            </Table>
-       
+            </Table>       
         </content>
     </Page>
  

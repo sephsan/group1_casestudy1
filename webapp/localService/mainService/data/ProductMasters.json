@@ -1,9 +1,142 @@
 [
     {
-        "DelPlantID": 1246172818,
-        "ProdId": "hyHdROqM",
+        "DelPlantID": 1118403542,
+        "ProdId": "zeIKBBFC",
         "ProdDesc": "ProdDesc1",
-        "Price": 1,
-        "Stock": 1
+        "Price": 94.686,
+        "Stock": 14155
+    },
+    {
+        "DelPlantID": 1159342489,
+        "ProdId": "odlNkhEX",
+        "ProdDesc": "ProdDesc2",
+        "Price": 27.127,
+        "Stock": 28257
+    },
+    {
+        "DelPlantID": 716224451,
+        "ProdId": "skyXjxxZ",
+        "ProdDesc": "ProdDesc3",
+        "Price": 40.485,
+        "Stock": 11530
+    },
+    {
+        "DelPlantID": 414666468,
+        "ProdId": "OMrzJIWE",
+        "ProdDesc": "ProdDesc4",
+        "Price": 84.631,
+        "Stock": 8398
+    },
+    {
+        "DelPlantID": 1348221556,
+        "ProdId": "DiBbHDvh",
+        "ProdDesc": "ProdDesc5",
+        "Price": 54.669,
+        "Stock": 4093
+    },
+    {
+        "DelPlantID": 1494424061,
+        "ProdId": "QKvoFzxJ",
+        "ProdDesc": "ProdDesc6",
+        "Price": 43.675,
+        "Stock": 24814
+    },
+    {
+        "DelPlantID": 1747641374,
+        "ProdId": "nSZaOeHa",
+        "ProdDesc": "ProdDesc7",
+        "Price": 90.005,
+        "Stock": 10589
+    },
+    {
+        "DelPlantID": 1987547241,
+        "ProdId": "AcdayNEK",
+        "ProdDesc": "ProdDesc8",
+        "Price": 9.28,
+        "Stock": 20823
+    },
+    {
+        "DelPlantID": 397150094,
+        "ProdId": "gZilgtxG",
+        "ProdDesc": "ProdDesc9",
+        "Price": 48.143,
+        "Stock": 19706
+    },
+    {
+        "DelPlantID": 845763350,
+        "ProdId": "HuKNvICi",
+        "ProdDesc": "ProdDesc10",
+        "Price": 22.826,
+        "Stock": 25854
+    },
+    {
+        "DelPlantID": 600804928,
+        "ProdId": "NnMUmzIp",
+        "ProdDesc": "ProdDesc11",
+        "Price": 30.752,
+        "Stock": 25043
+    },
+    {
+        "DelPlantID": 846937339,
+        "ProdId": "ByJZNLCP",
+        "ProdDesc": "ProdDesc12",
+        "Price": 70.133,
+        "Stock": 27356
+    },
+    {
+        "DelPlantID": 571774014,
+        "ProdId": "nbBhKNMV",
+        "ProdDesc": "ProdDesc13",
+        "Price": 16.677,
+        "Stock": 4704
+    },
+    {
+        "DelPlantID": 521351095,
+        "ProdId": "zPDVwnzY",
+        "ProdDesc": "ProdDesc14",
+        "Price": 97.843,
+        "Stock": 16443
+    },
+    {
+        "DelPlantID": 1210715942,
+        "ProdId": "ycIvBrla",
+        "ProdDesc": "ProdDesc15",
+        "Price": 49.65,
+        "Stock": 27194
+    },
+    {
+        "DelPlantID": 354839029,
+        "ProdId": "FWQcnvwQ",
+        "ProdDesc": "ProdDesc16",
+        "Price": 71.307,
+        "Stock": 16882
+    },
+    {
+        "DelPlantID": 517020005,
+        "ProdId": "IkPJwtNg",
+        "ProdDesc": "ProdDesc17",
+        "Price": 81.791,
+        "Stock": 26433
+    },
+    {
+        "DelPlantID": 1576170019,
+        "ProdId": "poXrWlSJ",
+        "ProdDesc": "ProdDesc18",
+        "Price": 77,
+        "Stock": 1837
+    },
+    {
+        "DelPlantID": 1409273696,
+        "ProdId": "xyRvQEBm",
+        "ProdDesc": "ProdDesc19",
+        "Price": 53.951,
+        "Stock": 8206
+    },
+    {
+        "DelPlantID": 1632727623,
+        "ProdId": "WJFJfiQu",
+        "ProdDesc": "ProdDesc20",
+        "Price": 26.278,
+        "Stock": 24814
     }
 ]
