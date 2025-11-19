@@ -1,0 +1,18 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+ <Dialog id="idProdDialog" title="Confirmation">
+    <content>
+    <Input id="idProdId"></Input>
+    </content>
+      <footer>
+        <OverflowToolbar id="idOFTFooterFrag">        
+          <ToolbarSpacer id="idTSpacerFooterFrag" />
+          <Button id="idBtnSaveFrag" text="Save" press=".onAddProdCreate"/>
+          <Button id="idBtnCancelFrag" text="Cancel" press=".onCloseDialog"/>
+        </OverflowToolbar>
+      </footer> 
+    </Dialog>
+
+</c:FragmentDefinition>

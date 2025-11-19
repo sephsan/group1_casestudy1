@@ -1,26 +1,31 @@
-<mvc:View controllerName="ordersystem.controller.Detail"
+<mvc:View controllerName="ordersystem.controller.Edit"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:form="sap.ui.layout.form"   
     xmlns:core="sap.ui.core"         
     xmlns="sap.m">
-    <Page id="page6" title="{i18n>title}">
+    <Page id="page9" title="{i18n>title}">
           <content>
      <Panel id="panelOrderDetails" headerText="{i18n>ordDetails}" class="sapUiResponsiveMargin" width="auto" >  
         <form:SimpleForm id="formOrderDetails" layout="ResponsiveGridLayout"
              labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="5" 
              emptySpanL="5" emptySpanM="5" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" >
                 <form:content>                
-                <Label id="lblDetOrderNo"     text="{i18n>orderNum}"/>
-                <Text id="inDetOrderNo"       text="{OrdId}" />                
-                <Label id="lblDetCreateDate"  text="{i18n>createDate}"/>
-                <Text id="inCreateDate"       text="{CreateDate}" />        
-                <Label id="lblDetRecPlant"    text="{i18n>recPlant}"/>
-                <Text id="inDetRecPlant"      text="{ReceivingPlant}{ReceivingPlantDesc}"/>                
-                 <Label id="lblDetDelPlant"   text="{i18n>delPlant}"/>
-                <Text id="inDetDelPlant"      text="{DeliveringPlant}" />
-                <Label id="lblDetStaus"       text="{i18n>status}"/>
-                <Text id="inDetStatus"        text="{Status}" />
-                
+                <Label id="lblDetOrderNo1"     text="{i18n>orderNum}"/>
+                <Text id="inDetOrderNo1"       text="{OrdId}" />                
+                <Label id="lblDetCreateDate1"  text="{i18n>createDate}"/>
+                <Text id="inCreateDate1"       text="{CreateDate}" />        
+                <Label id="lblDetRecPlant1"    text="{i18n>recPlant}"/>
+                <Text id="inDetRecPlant1"      text="{ReceivingPlant}{ReceivingPlantDesc}"/>                
+                 <Label id="lblDetDelPlant1"   text="{i18n>delPlant}"/>
+                <Text id="inDetDelPlant1"      text="{DeliveringPlant}" />
+                <Label id="lblDetStaus1"       text="{i18n>status}"/>
+                	<ComboBox
+                        items="{
+                            path: '/StatusList',
+                            sorter: { path: 'text' }
+                        }">
+                        <core:Item key="{key}" text="{text}" />
+                    </ComboBox>
                 
             </form:content>
  
@@ -40,7 +45,7 @@
                     </contentRight>
                 </Bar>
  
-                <Table id="productOrderTable" inset="false" mode="MultiSelect" noDataText="No data" items="{/Product_Orders}">
+                <Table id="productTable1" inset="false" mode="MultiSelect" noDataText="No data" items="{/Product_Orders}">
                     <columns>
                         <Column>
                             <Label text="Product Name"/>
@@ -58,7 +63,7 @@
                     <items>
                         <ColumnListItem>
                             <cells>
-                                <Text text="{OrdId}"/>
+                                <Text text="{ProdDesc}"/>
                                 <Input value="{Qty}" type="Number"/>
                                 <Text text="{Price}"/>
                                 <Text text="{ parts: [
@@ -76,7 +81,7 @@
              <footer>
             <Toolbar>
                 <ToolbarSpacer/> 
-                <Button text="Edit" type="Emphasized" press="onEditOrder"/>
+                <Button text="Edit" type="Emphasized"/>
                 <Button text="Cancel" type="Reject"  press="onCancel"/>
             </Toolbar>
         </footer>

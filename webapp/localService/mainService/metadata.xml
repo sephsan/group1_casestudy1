@@ -20,7 +20,7 @@
                 <Key>
                     <PropertyRef  Name="MasterID"/>
                 </Key>
-                <Property Name="MasterID" Type="Edm.Int32" Nullable="false" sap:label="Employee Number">
+                <Property Name="MasterID" Type="Edm.String" Nullable="false" sap:label="Employee Number">
                 </Property>               
             </EntityType>
 
@@ -28,7 +28,7 @@
                 <Key>
                     <PropertyRef  Name="DelPlantID"/>
                 </Key>
-                <Property Name="DelPlantID" Type="Edm.Int32" Nullable="false" sap:label="Delivery Plant Id"/>      
+                <Property Name="DelPlantID" Type="Edm.String" Nullable="false" sap:label="Delivery Plant Id"/>      
                 <Property Name="Desc" Type="Edm.String" Nullable="false" sap:label="Description"/>               
             </EntityType>
 
@@ -37,7 +37,7 @@
                 <Key>
                     <PropertyRef  Name="RecPlantID"/>
                 </Key>
-                <Property Name="RecPlantID" Type="Edm.Int32" Nullable="false" sap:label="Receiving Plant Id"/>      
+                <Property Name="RecPlantID" Type="Edm.String" Nullable="false" sap:label="Receiving Plant Id"/>      
                 <Property Name="Desc" Type="Edm.String" Nullable="false" sap:label="Description"/>               
             </EntityType>
 
@@ -57,10 +57,12 @@
                 <Key>
                     <PropertyRef  Name="OrdId"/>
                 </Key>
-                <Property Name="OrdId" Type="Edm.Int32" Nullable="false" sap:label="OrderId"/>      
+                <Property Name="OrdId" Type="Edm.String" Nullable="false" sap:label="OrderId"/>      
                 <Property Name="CreateDate" Type="Edm.String" Nullable="false" sap:label="Creation Date"/>            
-                <Property Name="ReceivingPlant" Type="Edm.String" Nullable="false" sap:label="Receiving Plant"/>     
+                <Property Name="ReceivingPlant" Type="Edm.String" Nullable="false" sap:label="Receiving Plant"/>  
+                <Property Name="ReceivingPlantDesc" Type="Edm.String" Nullable="false" sap:label="Receiving Plant Description"/>    
                 <Property Name="DeliveringPlant" Type="Edm.String" Nullable="false" sap:label="Delivering Plant"/>  
+                <Property Name="DeliveringDesc" Type="Edm.String" Nullable="false" sap:label="Delivering Plant Description"/>  
                 <Property Name="Status" Type="Edm.String" Nullable="false" sap:label="Status"/>       
             </EntityType>
 
@@ -68,7 +70,7 @@
                 <Key>
                     <PropertyRef  Name="OrdId"/>
                 </Key>
-                <Property Name="OrdId" Type="Edm.Int32" Nullable="false" sap:label="OrderId"/>      
+                <Property Name="OrdId" Type="Edm.String" Nullable="false" sap:label="OrderId"/>      
                 <Property Name="ProdId" Type="Edm.String" Nullable="false" sap:label="Product Id"/>            
                 <Property Name="ProdDesc" Type="Edm.String" Nullable="false" sap:label="Product Description"/>     
                 <Property Name="Qty" Type="Edm.Int16" Nullable="false" sap:label="Quantity"/>  

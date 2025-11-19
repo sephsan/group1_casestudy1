@@ -1,16 +1,20 @@
 [
     {
-        "OrdId": 269586276,
+        "OrdId": "1208001548",
         "CreateDate": "CreateDate1",
-        "ReceivingPlant": "ReceivingPlant1",
-        "DeliveringPlant": "DeliveringPlant1",
+        "ReceivingPlant": "R1",
+        "ReceivingPlantDesc": "ReceivingPlantDesc1",
+        "DeliveringPlant": "D1",
+        "DeliveringDesc": "DeliveringDesc1",
         "Status": "Created"
     },
     {
-        "OrdId": 159052455,
+        "OrdId": "HZHxpNDf",
         "CreateDate": "CreateDate2",
-        "ReceivingPlant": "ReceivingPlant2",
-        "DeliveringPlant": "DeliveringPlant2",
-        "Status": "Created"
+        "ReceivingPlant": "R2",
+        "ReceivingPlantDesc": "ReceivingPlantDesc2",
+        "DeliveringPlant": "D2",
+        "DeliveringDesc": "DeliveringDesc2",
+        "Status": "Released"
     }
 ]

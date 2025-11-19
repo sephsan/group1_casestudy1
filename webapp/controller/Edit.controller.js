@@ -1,23 +1,34 @@
 sap.ui.define([
     "./BaseController",
-    "sap/ui/model/json/JSONModel",
-    "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], (BaseController,JSONModel,Filter,FilterOperator) => {
+    "sap/ui/model/json/JSONModel"
+
+], (BaseController,JSONModel) => {
     "use strict";
 
     return BaseController.extend("ordersystem.controller.Detail", {
         
        onInit: async function() {
 
+        let oModelStatus = new sap.ui.model.json.JSONModel();
+
+        oModelStatus.setData({
+        items : [
+                 {key: "UK", text: "England"},
+                 {key: "GE", text: "Germany"},
+                 {key: "US", text: "USA"},
+                 {key: "PH", text: "Philippines"}
+                ]
+         });
+
+        this.getView().setModel(oModelStatus,"StatusList");
+
             this.oOwnerComponent = this.getOwnerComponent();
 			this.oRouter = this.oOwnerComponent.getRouter();
-
+			this.oRouter.attachRouteMatched(this._onRouteMatched, this);
              var oData = this.getOwnerComponent().getModel();
              this.getView().setModel(oData); //product
-			this.oRouter.attachRouteMatched(this._onRouteMatched, this);            
-            
-                
+  
+
         },
         onPressButtonPress:function(){
        
@@ -44,31 +55,14 @@ sap.ui.define([
             fTotal = fQty * fPrice;
             return `${fTotal.toFixed(0)}`;
         },
-        onEditOrder:function(){
-             var  OrdId = this.getView().byId("inDetOrderNo").getText();    
-              vOrder =  OrdId;      
-             var oRoute = this.getOwnerComponent().getRouter();
-            oRoute.navTo("Edit",{
-                OrderNumber : OrdId 
-            });
-        },
         _onRouteMatched:function(oEvent){
        
             var order = oEvent.getParameter("arguments").OrderNumber;            
             var oModel = this.getOwnerComponent().getModel();
                this.getView().bindElement({
                     path: "/Orders('" + order + "')"
-                    
     });
-         const oTable = this.byId("productOrderTable");
-            const oBinding = oTable.getBinding("items");        
- 
-              var aFilter = [];
-
-            if (order) {
-                aFilter.push(new Filter("OrdId", FilterOperator.EQ,order));
-                oBinding.filter(aFilter);
-            }      
+              
 
         }
     });

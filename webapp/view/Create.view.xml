@@ -44,7 +44,7 @@
                     </contentRight>
                 </Bar>
  
-                <Table id="productTable" inset="false" mode="MultiSelect" noDataText="No data" items="{/ProductOrder}">
+                <Table id="productTable" inset="false" mode="MultiSelect" noDataText="No data" items="{tempModel>/}">
                     <columns>
                         <Column>
                             <Label text="Product Name"/>
@@ -62,9 +62,9 @@
                     <items>
                         <ColumnListItem>
                             <cells>
-                                <Text text="{ProdDesc}"/>
-                                <Input value="{Qty}" type="Number"/>
-                                <Text text="{Price}"/>
+                                <Text text="{tempModel>ProdDesc}"/>
+                                <Text value="{tempModel>Qty}"/>
+                                <Text text="{tempModel>Price}"/>
                                 <Text text=""/>
                             </cells>
                         </ColumnListItem>
