@@ -4,35 +4,34 @@ controllerName="ordersystem.controller.Main">
     <Page id="Page" title="Orders">
         <content>                    
             <form:SimpleForm id="sfMain1" layout="ResponsiveGridLayout" columnsL="4" columnsM="4" labelSpanL="12" labelSpanM="12" emptySpanL="0" emptySpanM="0" editable="true">
-                   
-                <!-- Order Number -->
-                <VBox>
-                    <Label text="Order Number"/>
-                    <Input id="orderNumber" placeholder="Order Number"/>
+                  <!-- Order Number -->
+                <VBox id="vbOrderNumber">
+                    <Label id="lblOrderNumber" text="Order Number"/>
+                    <Input id="inpOrderNumber" placeholder="Order Number"/>
                 </VBox>
  
                 <!-- Creation Date -->
-                <VBox>
-                    <Label text="Creation Date"/>
-                    <DatePicker id="creationDate" placeholder="Creation Date"/>
+                <VBox id="vbCreateDate">
+                    <Label id="lblCreateDate" text="Creation Date"/>
+                    <DatePicker id="dpCreationDate" placeholder="Creation Date"/>
                 </VBox>
  
                 <!-- Status -->
-                <VBox>
-                    <Label text="Status"/>
-                    <Select id="status">
+                <VBox id="vbStatus">
+                    <Label id="lblStatus" text="Status"/>
+                    <Select id="selStatus">
                     <items>
-                        <core:Item key="" text=""/>
-                        <core:Item key="Created" text="Created"/>
-                        <core:Item key="Released" text="Released"/>
-                        <core:Item key="PartiallyReleased" text="Partially Completed"/>
-                        <core:Item key="Delivered" text="Delivered"/>
+                        <core:Item id="itemCB" key="" text=""/>
+                        <core:Item id="itemCreated" key="Created" text="Created"/>
+                        <core:Item id="itemReleased" key="Released" text="Released"/>
+                        <core:Item id="itemPartiallyReleased" key="PartiallyReleased" text="Partially Completed"/>
+                        <core:Item id="itemDelivered" key="Delivered" text="Delivered"/>
                     </items>
                     </Select>
                 </VBox>
  
                 <!-- Buttons -->
-                 <VBox id="vbButtons">
+                <VBox id="vbButtons">
                     <Label id="lblEmpty" text=" "/>
                     <HBox id="hbButtons">
                         <Button id="btnGo" text="Go" type="Emphasized" press="onFilterGo"/>
@@ -42,43 +41,43 @@ controllerName="ordersystem.controller.Main">
             </form:SimpleForm>
  
             <!-- TableView for Orders -->
-            <Table id="tblOrders" items="{/Orders}">
+            <Table id="tblOrders" items="{/Orders}" mode="MultiSelect">
                 <headerToolbar>
                     <OverflowToolbar id="idOFT">
                         <content>
                             <Title id="tblOrdersTitle" text="{i18n>tabTitle}()"/>
                             <ToolbarSpacer id="idTSpacer"/>
                             <Button id="btnCreateOrder" tooltip="{i18n>add}" press="onCreateOrder" icon="sap-icon://add"/>
-                            <Button id="btnDeleteOrder" tooltip="{i18n>delete}" press="onAddItem" icon="sap-icon://delete"/>
+                            <Button id="btnDeleteOrder" tooltip="{i18n>delete}" press="onDeleteOrder" icon="sap-icon://delete"/>
                         </content>
                     </OverflowToolbar>
                 </headerToolbar>
  
                 <!-- Table Column Text -->
-                <columns>
-                    <Column id="colCheckBox" width="3rem"><Text text=""/></Column>
-                    <Column id="colOrderNumber"><Text id="txtColOrderNumber" text="Order Number"/></Column>
-                    <Column id="colCreationDate"><Text id="txtColCreationDate" text="Creation Date"/></Column>            
-                    <Column id="colReceivingPlant"><Text id="txtColReceivingPlant" text="Receiving Plant"/></Column>
-                    <Column id="colDeliveringPlant"><Text id="txtColDeliveringPlant" text="Delivering Plant"/></Column>
-                    <Column id="colStatus"><Text id="txtColStatus" text="Status"/></Column>
+                <columns>                    
+                    <Column id="colOrderNumber"><Text id="txtColOrderNumber" text="Order Number" /></Column>
+                    <Column id="colCreationDate"><Text id="txtColCreationDate" text="Creation Date" /></Column>            
+                    <Column id="colReceivingPlant"><Text id="txtColReceivingPlant" text="Receiving Plant" /></Column>
+                    <Column id="colDeliveringPlant"><Text id="txtColDeliveringPlant" text="Delivering Plant" /></Column>
+                    <Column id="colStatus"><Text id="txtColStatus" text="Status" /></Column>
                 </columns>
  
                 <!-- Table Item List -->
                 <items>
                     <ColumnListItem id="colListItemOrders" type="Navigation" press="onItemPress">
-                        <cells>
-                            <CheckBox id="chkSelRow" select="onSelectRow"/>
+                        <cells>                            
                             <Text id="txtOrderNumber" text="{OrdId}"/>
-                            <Text id="txtCreationDate" text="{CreationDate}"/>
+                            <Text id="txtCreationDate" text="{CreateDate}" />                            
+                            <!--path: 'CreateDate',
+                                                              //type: 'sap.ui.model.type.Date',
+                                                              //formatOptions: { pattern: 'yy-MM-dd' }}" -->
                             <Text id="txtReceivingPlant" text="{ReceivingPlant}"/>
                             <Text id="txtDeliveringPlant" text="{DeliveringPlant}"/>
-                            <Text id="txtStatus" text="{Status}"/>
+                            <ObjectStatus id="txtStatus" text="{Status}" state="{path:'Status', formatter:'.formatStatusClass'}"/>
                         </cells>
                     </ColumnListItem>
                 </items>
-            </Table>
-       
+            </Table>          
         </content>
     </Page>
  

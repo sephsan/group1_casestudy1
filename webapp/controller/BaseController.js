@@ -13,27 +13,23 @@ sap.ui.define([
 
   return Controller.extend("ordersystem.controller.BaseController", {
 
-      onNavBack:function(){
-        const oHistory = History.getInstance();
-        const sPreviousHash = oHistory.getPreviousHash();
-        const oRouter = this.getRouter();
-        // sap.ui.core.UIComponent.getRouterFor(this);
-        
-        if(sPreviousHash !== undefined)
-        {
-          window.history.go(-1);
-
-        }else{
-          oRouter.navTo("RouteMain", {}, true);
-        }
-      },
+  navigateBack: function(sFallbackRoute) {
+            const oHistory = History.getInstance();
+            const sPreviousHash = oHistory.getPreviousHash();
+            const oRouter = this.getRouter();
+            if (sPreviousHash !== undefined) {
+                window.history.go(-1);
+            } else {
+                 oRouter.navTo("RouteMain", {}, true);
+            }
+        },
       getRouter:function(){
         return sap.ui.core.UIComponent.getRouterFor(this);
       },        
       onAddItem: function() {
             if (!this.oDialog) {
                 this.oDialog = this.loadFragment({
-                    name: "ordersystem.fragment.confirmdialog"
+                    name: "ordersystem.fragment.addproddialog"
                 });
             }
             this.oDialog.then(function(oDialog) {
@@ -42,10 +38,11 @@ sap.ui.define([
         },
         onCloseDialog: function() {
             // A null check prevents errors if the dialog is destroyed
-            const oDialog = this.byId("idSkillDialog");
+            const oDialog = this.byId("idProdDialog");
             if (oDialog) {
                 oDialog.close();
             }
           }
+         
   });
 });
