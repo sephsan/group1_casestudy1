@@ -18,7 +18,7 @@ controllerName="ordersystem.controller.Main">
                 <!-- Creation Date -->
                 <VBox id="vbCreateDate">
                     <Label id="lblCreateDate" text="Creation Date"/>
-                    <DatePicker id="dpCreationDate" placeholder="Creation Date"/>
+                    <DatePicker id="dpCreationDate" placeholder="Creation Date" valueFormat="yyy-MM-dd" />
                 </VBox>
  
                 <!-- Status -->
@@ -71,11 +71,14 @@ controllerName="ordersystem.controller.Main">
                 <items>
                     <ColumnListItem id="colListItemOrders" type="Navigation" press="onItemPress">
                         <cells>                            
-                            <Text id="txtOrderNumber" text="{OrdId}" />
-                            <Text id="txtCreationDate" text="{CreateDate}" />
-                            <Text id="txtReceivingPlant" text="{ReceivingPlant}" />
-                            <Text id="txtDeliveringPlant" text="{DeliveringPlant}" />
-                            <ObjectStatus id="txtStatus" text="{Status}" class="{path: 'Status', formatter: '.formatStatusClass'}" />
+                            <Text id="txtOrderNumber" text="{OrdId}"/>
+                            <Text id="txtCreationDate" text="{CreateDate}" />                            
+                            <!--path: 'CreateDate',
+                                                              //type: 'sap.ui.model.type.Date',
+                                                              //formatOptions: { pattern: 'yy-MM-dd' }}" -->
+                            <Text id="txtReceivingPlant" text="{ReceivingPlant}"/>
+                            <Text id="txtDeliveringPlant" text="{DeliveringPlant}"/>
+                            <Text id="txtStatus" text="{Status}" class="{ path: 'Status', formatter: '.formatStatusClass' }" />
                         </cells>
                     </ColumnListItem>
                 </items>

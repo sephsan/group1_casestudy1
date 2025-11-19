@@ -1,77 +1,42 @@
 [
     {
-        "OrdId": 20609,
-        "CreateDate": "11/19/25",
+        "OrdId": "A25721",
+        "CreateDate": "2025-11-19",
         "ReceivingPlant": "ReceivingPlant1",
         "DeliveringPlant": "DeliveringPlant1",
-        "Status": "Created"
+        "Status": "Delivered"
     },
     {
-        "OrdId": 19587,
-        "CreateDate": "11/18/25",
+        "OrdId": "B15764",
+        "CreateDate": "2025-11-17",
         "ReceivingPlant": "ReceivingPlant2",
         "DeliveringPlant": "DeliveringPlant2",
-        "Status": "Status2"
+        "Status": "Delivered"
     },
     {
-        "OrdId": 16003,
-        "CreateDate": "11/17/25",
+        "OrdId": "C22433",
+        "CreateDate": "2025-11-17",
         "ReceivingPlant": "ReceivingPlant3",
         "DeliveringPlant": "DeliveringPlant3",
         "Status": "Released"
     },
     {
-        "OrdId": 21030,
-        "CreateDate": "11/17/25",
+        "OrdId": "D17675",
+        "CreateDate": "2025-11-19",
         "ReceivingPlant": "ReceivingPlant4",
         "DeliveringPlant": "DeliveringPlant4",
-        "Status": "Partially Completed"
+        "Status": "Released"
     },
     {
-        "OrdId": 23418,
-        "CreateDate": "11/19/25",
+        "OrdId": "31651F",
+        "CreateDate": "2025-11-18",
         "ReceivingPlant": "ReceivingPlant5",
         "DeliveringPlant": "DeliveringPlant5",
         "Status": "Delivered"
     },
     {
-        "OrdId": 28163,
-        "CreateDate": "11/16/25",
-        "ReceivingPlant": "ReceivingPlant6",
-        "DeliveringPlant": "DeliveringPlant6",
-        "Status": "Delivered"
-    },
-    {
-        "OrdId": 30041,
-        "CreateDate": "11/18/25",
-        "ReceivingPlant": "ReceivingPlant7",
-        "DeliveringPlant": "DeliveringPlant7",
-        "Status": "Delivered"
-    },
-    {
-        "OrdId": 14158,
-        "CreateDate": "11/19/25",
-        "ReceivingPlant": "ReceivingPlant8",
-        "DeliveringPlant": "DeliveringPlant8",
-        "Status": "Released"
-    },
-    {
-        "OrdId": 24677,
-        "CreateDate": "11/19/25",
-        "ReceivingPlant": "ReceivingPlant9",
-        "DeliveringPlant": "DeliveringPlant9",
-        "Status": "Released"
-    },
-    {
-        "OrdId": 22071,
-        "CreateDate": "11/18/25",
-        "ReceivingPlant": "ReceivingPlant10",
-        "DeliveringPlant": "DeliveringPlant10",
-        "Status": "Created"
-    },
-    {
-        "OrdId": 9265,
-        "CreateDate": "11/17/25",
+        "OrdId": "23063G",
+        "CreateDate": "2025-11-17",
         "ReceivingPlant": "ReceivingPlant20",
         "DeliveringPlant": "DeliveringPlant20",
         "Status": "Created"

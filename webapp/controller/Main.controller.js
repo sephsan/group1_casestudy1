@@ -16,8 +16,9 @@ sap.ui.define([
             //    oOrder.SelectedRow = false;
             //});
             //oModel.setProperty("/Orders", aOrders);
-
+            oModel.refresh(true);
             this.getView().setModel(oModel);
+            
         },
 
         onAfterRendering() {
@@ -30,7 +31,7 @@ sap.ui.define([
             oTable.attachUpdateFinished(function(oEvent) {
             var iCount = oEvent.getParameter("total");
               this.byId("tblOrdersTitle").setText(sText + "(" + iCount + ")");
-              }.bind(this));                           
+              }.bind(this));                            
         },
 
         //on table Create button-navigation to Create Order Page
@@ -88,7 +89,7 @@ sap.ui.define([
             if (sSearchOrderId) {
                 aFilter.push(new Filter("OrdId", FilterOperator.Contains, sSearchOrderId));
             }
-            if (sSearchCreateDate) {
+            if (sSearchCreateDate) {            
                 aFilter.push(new Filter("CreateDate", FilterOperator.Contains, sSearchCreateDate));
             }
             if (sSearchStatus) {
