@@ -98,8 +98,8 @@
         },
         {
           "name": "Detail",
-          "pattern": "Detail{id}",
-          "target": "Detail"
+          "pattern": "Detail/{OrderNumber}",
+          "target": [ "Detail" ]
         },
         {
           "name": "Create",
@@ -108,8 +108,8 @@
         },
         {
           "name": "Edit",
-          "pattern": "Edit{id}",
-          "target": "Edit"
+          "pattern": "Edit/{OrderNumber}",
+          "target": [ "Edit" ]
         }
       ],
       "targets": {

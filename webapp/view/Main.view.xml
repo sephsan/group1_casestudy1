@@ -32,11 +32,11 @@ controllerName="ordersystem.controller.Main">
                 </VBox>
  
                 <!-- Buttons -->
-                <VBox>
-                    <Label text=" "/>
-                    <HBox>
-                        <Button text="Go" type="Emphasized" press="onFilterGo"/>
-                        <Button text="Clear" type="Transparent" press="onFilterClear"/>
+                 <VBox id="vbButtons">
+                    <Label id="lblEmpty" text=" "/>
+                    <HBox id="hbButtons">
+                        <Button id="btnGo" text="Go" type="Emphasized" press="onFilterGo"/>
+                        <Button id="btnClear" text="Clear" type="Transparent" press="onFilterClear"/>
                     </HBox>
                 </VBox>
             </form:SimpleForm>
@@ -69,7 +69,7 @@ controllerName="ordersystem.controller.Main">
                     <ColumnListItem id="colListItemOrders" type="Navigation" press="onItemPress">
                         <cells>
                             <CheckBox id="chkSelRow" select="onSelectRow"/>
-                            <Text id="txtOrderNumber" text="{OrderNumber}"/>
+                            <Text id="txtOrderNumber" text="{OrdId}"/>
                             <Text id="txtCreationDate" text="{CreationDate}"/>
                             <Text id="txtReceivingPlant" text="{ReceivingPlant}"/>
                             <Text id="txtDeliveringPlant" text="{DeliveringPlant}"/>
