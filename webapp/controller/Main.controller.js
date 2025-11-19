@@ -55,9 +55,10 @@ sap.ui.define([
         },
 
         //on table item press-navigation to Detail Page
-        onItemPress:function(){
+        onItemPress:function(oEvt){
+            var oOrdId = oEvt.getsource().getBindingContext().getObject().OrdId;
             var oRoute = this.getOwnerComponent().getRouter();
-            oRoute.navTo("Detail", { OrdId :"111" });
+            oRoute.navTo("Detail", { OrderNumber : OrdId });
         },
 
         onFilterClear: function(){
