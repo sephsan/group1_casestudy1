@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+ <Dialog id="idProdDialog" title="Add Product">
+    <content>
+        <VBox class="sapUiSmallMargin">        
+         <Label text="Product" labelFor="quantityInput" class="sapUiSmallMarginTop"/>
+         <Input id="productInput"
+                value=""                />
+          <Label text="Quantity" labelFor="quantityInput" class="sapUiSmallMarginTop"/>
+          <Input id="quantityInput"
+                value=""
+                type="Number"
+                placeholder="Enter quantity" />   
+    </VBox>
+    </content>
+      <footer>
+        <OverflowToolbar id="idOFTFooterFrag">        
+          <ToolbarSpacer id="idTSpacerFooterFrag" />
+          <Button id="idBtnSaveFrag" text="Save" press=".onAddProdCreate"/>
+          <Button id="idBtnCancelFrag" text="Cancel" press=".onCloseDialog"/>
+        </OverflowToolbar>
+      </footer> 
+    </Dialog>
+
+</core:FragmentDefinition>

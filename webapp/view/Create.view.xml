@@ -63,9 +63,13 @@
                         <ColumnListItem>
                             <cells>
                                 <Text text="{tempModel>ProdDesc}"/>
-                                <Text value="{tempModel>Qty}"/>
+                                <Text text="{tempModel>Qty}"/>
                                 <Text text="{tempModel>Price}"/>
-                                <Text text=""/>
+                                 <Text text="{ parts: [
+                                                            {path: 'tempModel>Qty'},
+                                                            {path: 'tempModel>Price'}
+                                                            ],
+                                                            formatter: '.formatTotalPrice' }"/>
                             </cells>
                         </ColumnListItem>
                     </items>

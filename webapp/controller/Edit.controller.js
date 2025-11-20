@@ -9,19 +9,6 @@ sap.ui.define([
         
        onInit: async function() {
 
-        let oModelStatus = new sap.ui.model.json.JSONModel();
-
-        oModelStatus.setData({
-        items : [
-                 {key: "UK", text: "England"},
-                 {key: "GE", text: "Germany"},
-                 {key: "US", text: "USA"},
-                 {key: "PH", text: "Philippines"}
-                ]
-         });
-
-        this.getView().setModel(oModelStatus,"StatusList");
-
             this.oOwnerComponent = this.getOwnerComponent();
 			this.oRouter = this.oOwnerComponent.getRouter();
 			this.oRouter.attachRouteMatched(this._onRouteMatched, this);

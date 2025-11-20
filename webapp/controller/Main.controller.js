@@ -26,11 +26,9 @@ sap.ui.define([
         },
          onFilterClear: function(){
 
-            var oView = this.getView();
-            oView.byId("inpOrderNumber").setValue("");
-            // this.getView().byId("inpOrderNumber").setValue("");
-            // this.getView().byId("dpCreationDate").setValue("");
-            // this.getView().byId("selStatus").setSelectedKey(""); 
+            this.getView().byId("inpOrderNumber").setValue("");
+            this.getView().byId("dpCreationDate").setValue("");
+            this.getView().byId("selStatus").setSelectedKey(""); 
         },
 
         onFilterGo: function(){
