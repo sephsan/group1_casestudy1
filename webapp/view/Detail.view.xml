@@ -15,9 +15,9 @@
                 <Label id="lblDetCreateDate"  text="{i18n>createDate}"/>
                 <Text id="inCreateDate"       text="{CreateDate}" />        
                 <Label id="lblDetRecPlant"    text="{i18n>recPlant}"/>
-                <Text id="inDetRecPlant"      text="{ReceivingPlant}{ReceivingPlantDesc}"/>                
+                <Text id="inDetRecPlant"      text="{ReceivingPlant} - {ReceivingPlantDesc}"/>                
                  <Label id="lblDetDelPlant"   text="{i18n>delPlant}"/>
-                <Text id="inDetDelPlant"      text="{DeliveringPlant}" />
+                <Text id="inDetDelPlant"      text="{DeliveringPlant} - {DeliveringPlantDesc}" />
                 <Label id="lblDetStaus"       text="{i18n>status}"/>
                 <Text id="inDetStatus"        text="{Status}" />
                 
@@ -34,10 +34,10 @@
                     <contentLeft>
                         <Title text="Product (0)" />
                     </contentLeft>
-                    <contentRight>
+                    <!-- <contentRight>
                         <Button icon="sap-icon://add" tooltip="Add Product" press=".onAddProduct"/>
                         <Button icon="sap-icon://delete" tooltip="Delete Product" press=".onDeleteProduct"/>
-                    </contentRight>
+                    </contentRight> -->
                 </Bar>
  
                 <Table id="productOrderTable" inset="false" mode="MultiSelect" noDataText="No data" items="{/Product_Orders}">
@@ -59,7 +59,7 @@
                         <ColumnListItem>
                             <cells>
                                 <Text text="{OrdId}"/>
-                                <Input value="{Qty}" type="Number"/>
+                                <Text  text="{Qty}" type="Number"/>
                                 <Text text="{Price}"/>
                                 <Text text="{ parts: [
                                                             {path: 'Qty'},

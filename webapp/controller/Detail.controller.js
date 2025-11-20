@@ -45,8 +45,7 @@ sap.ui.define([
             return `${fTotal.toFixed(0)}`;
         },
         onEditOrder:function(){
-             var  OrdId = this.getView().byId("inDetOrderNo").getText();    
-              vOrder =  OrdId;      
+             var  OrdId = this.getView().byId("inDetOrderNo").getText();                    
              var oRoute = this.getOwnerComponent().getRouter();
             oRoute.navTo("Edit",{
                 OrderNumber : OrdId 

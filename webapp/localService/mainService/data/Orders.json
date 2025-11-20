@@ -3,7 +3,7 @@
         "OrdId": "1208001548",
         "CreateDate": "CreateDate1",
         "ReceivingPlant": "R1",
-        "ReceivingPlantDesc": "ReceivingPlantDesc1",
+        "ReceivingPlantDesc": "Receiving PlantDesc1",
         "DeliveringPlant": "D1",
         "DeliveringDesc": "DeliveringDesc1",
         "Status": "Created"
@@ -12,9 +12,18 @@
         "OrdId": "HZHxpNDf",
         "CreateDate": "CreateDate2",
         "ReceivingPlant": "R2",
-        "ReceivingPlantDesc": "ReceivingPlantDesc2",
+        "ReceivingPlantDesc": "Receiving PlantDesc2",
         "DeliveringPlant": "D2",
         "DeliveringDesc": "DeliveringDesc2",
         "Status": "Released"
+    },
+    {
+        "OrdId": "HZHxpND1",
+        "CreateDate": "CreateDate3",
+        "ReceivingPlant": "R3",
+        "ReceivingPlantDesc": "Receiving PlantDesc3",
+        "DeliveringPlant": "D3",
+        "DeliveringDesc": "DeliveringDesc3",
+        "Status": "Partially Completed"
     }
 ]

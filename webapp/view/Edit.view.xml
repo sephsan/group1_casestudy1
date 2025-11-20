@@ -5,7 +5,7 @@
     xmlns="sap.m">
     <Page id="page9" title="{i18n>title}">
           <content>
-     <Panel id="panelOrderDetails" headerText="{i18n>ordDetails}" class="sapUiResponsiveMargin" width="auto" >  
+     <Panel id="panelOrderDetails" headerText="{i18n>ordEdit}" class="sapUiResponsiveMargin" width="auto" >  
         <form:SimpleForm id="formOrderDetails" layout="ResponsiveGridLayout"
              labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="5" 
              emptySpanL="5" emptySpanM="5" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" >

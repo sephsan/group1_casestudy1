@@ -8,23 +8,16 @@ sap.ui.define([
 
     return BaseController.extend("ordersystem.controller.Create", {
         onInit() {            
-           var oModel = this.getOwnerComponent().getModel("productModel"); 
+           var oModel = this.getOwnerComponent().getModel(); 
            this.getView().setModel(oModel);
            this.getView().setModel( new JSONModel([]),"tempModel");
-
+          
         },
-        toDetailPage:function(){
-            var oRoute = this.getOwnerComponent().getRouter();
-            oRoute.navTo("", { id :"111" });
-
-
-            },
-
       onSave: function () {
         var that = this;
         var oModel = this.getView().getModel();
-        var oOrder = oModel.getProperty("/Orders");
-        var aProducts = oModel.getProperty("/Products");
+        // var oOrder = oModel.getProperty("/Orders");
+        // var aProducts = oModel.getProperty("/Products");
 
         var bValid = true;
         var aErrors = [];
@@ -57,9 +50,12 @@ sap.ui.define([
                 var oData = {       
                 CreateDate: sDate,
                 ReceivingPlant: irec,
+                ReceivingPlantDesc:'Receiving PlantDesc 1',
                 DeliveringPlant: idel,
-                Status: "Released"
+                DeliveringPlantDesc:'DeliveringDesc 1',
+                Status: "Created"
                 }
+
                 //Trigger HTTP POST operation
                 var oController = this;
                 oModel.create("/Orders", oData,{
@@ -86,10 +82,24 @@ sap.ui.define([
                     }
                 }); 
         },
+        formatTotalPrice: function(vQuantity, vUnitPrice) {			
+	        const fQty   = parseFloat(vQuantity),
+                  fPrice = parseFloat(vUnitPrice);
+                  
+            let fTotal;
+            
+            if (isNaN(fQty) || isNaN(fPrice)){
+                return "0";
+            }
+
+            fTotal = fQty * fPrice;
+            return `${fTotal.toFixed(0)}`;
+        }
+        ,
         onAddProduct:function(){
            if (!this.oDialog) {
                 this.oDialog = this.loadFragment({
-                    name: "ordersystem.fragment.confirmdialog"
+                    name: "ordersystem.fragment.addproddialog"
                 });
             }
             this.oDialog.then(function(oDialog) {
@@ -118,25 +128,20 @@ sap.ui.define([
             onAddProdCreate: function() {
             // A null check prevents errors if the dialog is destroyed
             const oDialog = this.byId("idProdDialog");
-            const oTable = this.byId("productTable");
-            var oModel = this.getOwnerComponent().getModel();
+            // const oTable = this.byId("productTable");
+            // var oModel = this.getOwnerComponent().getModel();
+            const iQty =parseInt(this.byId("quantityInput").getValue(),10);
+            var sProductDesc = this.byId("productInput").getValue();
             const payload = {
-                OrdId: "12345",
-                ProdId: "test",
-                ProdDesc: "ProdDesc2",
-                Qty: 3,
+                OrdId: "",
+                ProdId: sProductDesc,
+                ProdDesc: sProductDesc,
+                Qty: iQty,
                 Price:200               
               };
             var oResult = this.getView().getModel("tempModel").getProperty("/");
             oResult.push(payload);
             this.getView().getModel("tempModel").setProperty("/",oResult);
-
-            //   oModel.create("/Product_Orders", payload, {
-            //     success: () => {
-            //         oModel.refresh(true);
-            //     },
-            //     error: (e) => console.log(e)
-            //   });
 
             if (oDialog) {
                 oDialog.close();
